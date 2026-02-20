@@ -8,11 +8,15 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center section-padding pt-32 overflow-hidden bg-background"
     >
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-[60%] h-full bg-gradient-to-r from-primary/5 to-transparent" />
-        <div className="absolute bottom-0 right-0 w-[40%] h-[60%] bg-gradient-to-tl from-accent/5 to-transparent" />
-      </div>
+      {/* Animated gradient blobs */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-primary/8 rounded-full blur-3xl pointer-events-none animate-float" />
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/6 rounded-full blur-3xl pointer-events-none" />
+      
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
+        backgroundSize: '60px 60px',
+      }} />
 
       <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -35,7 +39,13 @@ const HeroSection = () => {
                 <br />
                 <span className="relative inline-block">
                   <span className="relative z-10 text-foreground">SOLUTIONS</span>
-                  <span className="absolute bottom-1 left-0 w-full h-[35%] bg-primary/20 -z-0" />
+                  <motion.span 
+                    className="absolute bottom-1 left-0 w-full h-[35%] bg-primary/20 -z-0"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    style={{ transformOrigin: 'left' }}
+                  />
                 </span>
                 <span className="text-primary">.</span>
               </h1>
@@ -62,7 +72,7 @@ const HeroSection = () => {
             >
               <a
                 href="#contact"
-                className="group relative w-36 h-36 md:w-40 md:h-40 rounded-full bg-primary flex flex-col items-center justify-center text-primary-foreground font-heading font-semibold text-sm md:text-base hover:scale-105 transition-transform duration-300 shadow-glow"
+                className="group relative w-36 h-36 md:w-40 md:h-40 rounded-full bg-gradient-primary flex flex-col items-center justify-center text-primary-foreground font-heading font-semibold text-sm md:text-base hover:scale-105 transition-transform duration-300 shadow-glow"
               >
                 <span>Let's Talk</span>
                 <span>With Us</span>
