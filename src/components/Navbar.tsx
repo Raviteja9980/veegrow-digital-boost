@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/veegrow-logo.png";
+import logo from "@/assets/veegrow-logo.jpeg";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -24,7 +24,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between py-4">
         <a href="#home" className="flex items-center gap-2">
-          <img src={logo} alt="VeeGrow" className="h-10 w-10 rounded-lg" />
+          <img src={logo} alt="VeeGrow" className="h-10 rounded" />
           <span className="text-2xl font-heading font-bold text-gradient">VeeGrow</span>
         </a>
 
